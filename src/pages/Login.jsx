@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 export default function Login() {
 
-    const { setUser } = useAuth()
+    const { login } = useAuth()
     const [email, setEmail] = useState('')
     const [pass, setPass] = useState('')
     const [error, setError] = useState('')
@@ -27,14 +27,7 @@ export default function Login() {
 
         const data = await res.json()
 
-        localStorage.setItem("token", data.token)
-        localStorage.setItem("rol", data.rol)
-        localStorage.setItem("email", data.email)
-
-        setUser({
-            email: data.email,
-            role: data.rol
-        })
+        login(data)
 
         navigate("/")
     }
