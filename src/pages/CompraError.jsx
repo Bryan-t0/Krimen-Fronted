@@ -1,0 +1,1 @@
+export default function CompraError(){ return <div className='container py-4'><h1>Compra Error</h1><p>No se pudo procesar el pago.</p></div> }

@@ -1,0 +1,1 @@
+export default function CompraOK(){ return <div className='container py-4'><h1>Compra Exitosa</h1><p>Gracias por tu compra.</p></div> }
