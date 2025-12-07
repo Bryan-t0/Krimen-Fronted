@@ -14,15 +14,13 @@ export default function Categorias() {
     const [search, setSearch] = useState('')
 
     useEffect(() => {
-        fetchProductos().then(data => {
-            setProductos(data)
-        })
+        fetchProductos().then(setProductos)
     }, [])
 
     const filtered = useMemo(() => {
         return productos.filter(p =>
             p.nombre.toLowerCase().includes(search.toLowerCase()) &&
-            (p.categoria?.toLowerCase() === cat.toLowerCase())
+            p.categoria?.toLowerCase() === cat.toLowerCase()
         )
     }, [productos, search, cat])
 
@@ -36,7 +34,7 @@ export default function Categorias() {
                         className="form-control"
                         placeholder="Buscar..."
                         value={search}
-                        onChange={(e) => setSearch(e.target.value)}
+                        onChange={e => setSearch(e.target.value)}
                     />
                 </div>
             </div>

@@ -11,10 +11,27 @@ export default function Register() {
     const [email, setEmail] = useState('')
     const [pass, setPass] = useState('')
     const [error, setError] = useState('')
+    const [success, setSuccess] = useState('')
 
     async function handleSubmit(e) {
         e.preventDefault()
         setError('')
+        setSuccess('')
+
+        if (!nombre.trim()) {
+            setError("El nombre es obligatorio")
+            return
+        }
+
+        if (!email.includes("@") || !email.includes(".")) {
+            setError("Correo inválido")
+            return
+        }
+
+        if (pass.length < 4) {
+            setError("La contraseña debe tener mínimo 4 caracteres")
+            return
+        }
 
         const res = await fetch("http://localhost:8080/auth/register", {
             method: "POST",
@@ -27,7 +44,7 @@ export default function Register() {
         })
 
         if (!res.ok) {
-            setError("No se pudo registrar")
+            setError("No se pudo registrar (correo ya existe)")
             return
         }
 
@@ -42,7 +59,11 @@ export default function Register() {
             role: data.rol
         })
 
-        navigate("/login")
+        setSuccess("Cuenta creada correctamente")
+
+        setTimeout(() => {
+            navigate("/login")
+        }, 1200)
     }
 
     return (
@@ -75,6 +96,7 @@ export default function Register() {
                 />
 
                 {error && <p className="text-danger">{error}</p>}
+                {success && <p className="text-success fw-bold">{success}</p>}
 
                 <button className="btn btn-success w-100">
                     Crear cuenta

@@ -6,7 +6,6 @@ export default function ProductCard({ product }) {
 
     return (
         <div className="card shadow-sm h-100">
-            {}
             <img
                 src="https://via.placeholder.com/300x300?text=KRIMEN"
                 className="card-img-top"
@@ -14,7 +13,6 @@ export default function ProductCard({ product }) {
             />
 
             <div className="card-body d-flex flex-column">
-
                 <h5 className="card-title">{product.nombre}</h5>
 
                 <p className="card-text fw-bold">
@@ -27,7 +25,6 @@ export default function ProductCard({ product }) {
                 >
                     Agregar al carrito
                 </button>
-
             </div>
         </div>
     );

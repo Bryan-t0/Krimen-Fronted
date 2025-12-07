@@ -24,7 +24,6 @@ export default function NavBar() {
                         <Link className="nav-link" to="/categorias/accesorios">Accesorios</Link>
                     </li>
 
-                    {/* Solo admin puede ver este */}
                     {user?.role === "ADMIN" && (
                         <li className="nav-item">
                             <Link className="nav-link" to="/admin">ADMIN</Link>
