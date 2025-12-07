@@ -22,23 +22,23 @@ function AdminGuard({ children }) {
     return <Navigate to="/login" replace state={{ from: loc }} />
 }
 
-export default function App(){
+export default function App() {
     return (
         <>
             <NavBar />
             <Routes>
-                <Route path="/" element={<Home/>} />
-                <Route path="/categorias/:cat" element={<Categorias/>} />
-                <Route path="/carrito" element={<Carrito/>} />
-                <Route path="/checkout" element={<Checkout/>} />
-                <Route path="/compra-exitosa" element={<CompraOK/>} />
-                <Route path="/compra-error" element={<CompraError/>} />
-                <Route path="/ofertas" element={<Ofertas/>} />
+                <Route path="/" element={<Home />} />
+                <Route path="/categorias/:cat" element={<Categorias />} />
+                <Route path="/carrito" element={<Carrito />} />
+                <Route path="/checkout" element={<Checkout />} />
+                <Route path="/compra-exitosa" element={<CompraOK />} />
+                <Route path="/compra-error" element={<CompraError />} />
+                <Route path="/ofertas" element={<Ofertas />} />
 
-                <Route path="/admin" element={<AdminGuard><Admin/></AdminGuard>} />
+                <Route path="/admin" element={<AdminGuard><Admin /></AdminGuard>} />
 
-                <Route path="/login" element={<Login/>} />
-                <Route path="/register" element={<Register/>} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
             </Routes>
         </>
     )
